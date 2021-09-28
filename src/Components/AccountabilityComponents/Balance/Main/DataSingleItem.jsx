@@ -20,6 +20,8 @@ const DataSingleItem = (props) => {
     }
     const printCorrectTotal = () => {
         switch (data.type) {
+            case"initial":
+                return <>{data.incomes}</>
             case "income":
                 return <>{data.incomes}</>
             case "expense":

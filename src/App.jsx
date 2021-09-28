@@ -71,13 +71,13 @@ const reducer = (state, action) => {
                     [
                         {
                             id: 0,
-                            type: "Initial",
-                            category: "Balance",
+                            type: "initial",
+                            category: "balance",
                             description: "",
-                            quantity: "",
-                            value: "",
+                            quantity: "1",
+                            value: state.userInitialInfo.balance,
                             expenses: "",
-                            incomes: state.userInitialInfo.balance
+                            incomes: state.userInitialInfo.balance,
                         }
                     ]
                 ],
