@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React, { createRef, useEffect } from "react";
 import "./NewEntryForm.css"
 
 
@@ -12,28 +12,40 @@ const NewEntryForm = (props) => {
     let rule = props.rule
     let select = createRef()
 
+    
     const setCategories = () => {
-        let selectArray = data.accountabilityLog[data.currentTable]
+        let selectArray;
+        //Now Lets filter the array depending of the rule
+        switch (rule) {
+            case "all":
+                selectArray = data.accountabilityLog[data.currentTable]
+                break
+            case "income":
+                selectArray = data.accountabilityLog[data.currentTable].filter(element => element.type === "income")
+                break
+            case "expense":
+                selectArray = data.accountabilityLog[data.currentTable].filter(element => element.type === "expense")
+                break
+            default:
+                break
+        }
+        console.log("selectArray", selectArray)
         //This will give us the categories in 1 array
-
         const noRepeated = (array) => {
-            console.log("array", array)
             let newArray = []
-
             //Let loop the categories and creat new one with no repeated values
             for (let i = 0; i < array.length; i++) {
                 if (newArray.includes(array[i].category) === false) {
                     newArray.push(array[i].category)
                 }
             }
-
             return newArray
-        }
+        } 
         let filteredCategories = noRepeated(selectArray)
-        //Lets remove the first item which is "balance" category
-        filteredCategories.shift()
+        //Lets remove the first item which is "balance" category and create logic to avoid error when is only income or expense.
+        filteredCategories[0] === "balance" ? filteredCategories.shift() : console.log("noRepeated(): Is not Balance")
+        
         console.log("filteredCategories", filteredCategories)
-
         return (
             <>
                 {filteredCategories.map((element, index) => <option key={index}>{element}</option>)}
@@ -57,7 +69,7 @@ const NewEntryForm = (props) => {
             case "expense":
                 return <option value="expense">Expense</option>
             default:
-            break
+                break
         }
     }
 
