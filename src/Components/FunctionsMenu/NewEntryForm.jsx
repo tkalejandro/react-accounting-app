@@ -19,6 +19,8 @@ const NewEntryForm = (props) => {
         const noRepeated = (array) => {
             console.log("array",array)
             let newArray = []
+            
+            //Let loop the categories and creat new one with no repeated values
             for (let i = 0; i < array.length; i++) {
                 if(newArray.includes(array[i].category) === false) {
                     newArray.push(array[i].category)
@@ -28,6 +30,8 @@ const NewEntryForm = (props) => {
             return newArray
         }
         let filteredCategories = noRepeated(selectArray)
+        //Lets remove the first item which is "balance" category
+        filteredCategories.shift()
         console.log("filteredCategories", filteredCategories)
         
         return (
