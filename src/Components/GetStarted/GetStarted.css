@@ -1,0 +1,44 @@
+.getStarted {
+    padding: 20px 0 20px;
+    width:  90%;
+    /* height: 200px; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+}
+.getStarted p {
+    margin: 20px 0 20px;
+}
+.getStarted .linksContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.linksContainer a{
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.getStartedBtn {    
+    background-color: #026081;
+    color:white;
+}
+.getStartedBtn:hover {
+    background-color: #6f768e;
+}
+
+.exampleBtn {
+    border: 1px solid #026081;
+}
+.exampleBtn:hover {
+    border:  1px solid #0abbfa;
+    
+}
+

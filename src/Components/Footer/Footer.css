@@ -1,0 +1,21 @@
+footer {
+    background-color: #8ee4f4;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+footer .madeBy, footer .techEducation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px 0;
+}
+
+
+.techEducation img {
+    max-width: 200px;
+}

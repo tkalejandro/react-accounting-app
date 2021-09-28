@@ -1,0 +1,15 @@
+.headerContainer {
+        width: 90%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: white;
+        flex-direction: column;
+}
+.headerContainer .mainLogo {
+    width: 100%;
+    max-width: 100px;
+    border-radius: 50%;
+}

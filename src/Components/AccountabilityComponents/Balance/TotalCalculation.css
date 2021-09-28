@@ -1,0 +1,25 @@
+.totalCalculation {
+    margin-top: 25px;
+    width: 90%;
+    
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    border-radius: 20px;
+}
+.positiveValue {
+    border: 2px solid #0abbfa;
+    color: #026081
+}
+
+.negativeValue {
+    border: 2px solid #3d4868;
+    color: #3d4868
+}
+
+.neutralValue {
+    border: 2px solid #bbbace;
+    color: #bbbace
+}

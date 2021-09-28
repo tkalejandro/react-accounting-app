@@ -1,0 +1,9 @@
+.statusContainer {
+    width: 90%;
+    box-shadow: 5px 5px 5px #8ee4f4, -5px -5px 5px #8ee4f4 ;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: skyblue;
+}
+

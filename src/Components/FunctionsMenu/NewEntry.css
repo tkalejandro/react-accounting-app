@@ -1,0 +1,12 @@
+.plusBtn {
+    position: fixed;
+    font-size: 3.5rem;
+    padding: 10px;
+    background-color: #3d4868;
+    color: white;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 25px;
+    z-index: 2;
+}
+

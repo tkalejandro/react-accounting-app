@@ -1,0 +1,24 @@
+.mainBalanceContainer {
+    width:  90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+    padding: 20px 0px 20px;
+}
+.mainBalanceContainer .table{
+    border-collapse: separate;
+    
+    border-spacing: 0 15px;
+    padding:  0px 10px 0;    
+}
+
+
+.mainTableRow td {
+    padding: 15px 10px 15px;   
+    
+}
+

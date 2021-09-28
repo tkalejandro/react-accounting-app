@@ -1,0 +1,70 @@
+.welcome {
+    width:  90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+    padding: 20px 0 20px;
+}
+.welcome p {
+    margin-top: 5px;
+}
+
+
+.welcome form {
+    padding: 0px 20px 0px;
+    width: 100%;
+}
+.welcome form input {
+    width: 100%;
+    margin: 5px 0px 5px;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #6f768e;
+}
+.welcome form input:focus {
+    outline: none;
+    border: 2px solid #0abbfa;
+    border-radius: 5px;
+    
+
+}
+.welcome form .btnContainer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.welcome form .btnContainer a{
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 5px;
+}
+.btnSubmitErrorTrue {
+    /* background-color: #026081; */
+    background-color: #bbbace;
+    color: white;
+    cursor: "none";
+    pointer-events: none;
+}
+.btnSubmitErrorFalse {
+    background-color: #026081;
+    color: white;
+    
+}
+.btnGoBack {
+    border: 1px solid #026081;
+}
+
+
+/* ERROR MESSAGE */
+.welcome form .errorMessage {
+    width:  100%;
+    color: red;
+    font-size: 0.9rem;
+    display: none;
+    
+}

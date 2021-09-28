@@ -1,0 +1,40 @@
+.dataSingleItemContainer {
+    width:  90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+    padding: 20px 0px 20px;
+}
+
+.dataSingleItemContainer .rowHidden {
+    visibility: hidden;
+}
+.dataSingleItemContainer .table {
+    width: 80%;
+    text-align: start;
+}
+
+.dataSingleItemContainer tbody td {
+    padding: 2px;
+}
+.dataSingleItemContainer .singleItemLinksContainer {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.dataSingleItemContainer .functionsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.functionsContainer button {
+    margin: 10px;
+}
+

@@ -1,0 +1,117 @@
+.newEntryFormContainer {
+    display: none;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* ************ */
+    width: 300px;
+    height: 480px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #0abbfa, -2px -2px 5px #0abbfa;
+    padding: 20px 20px 20px;
+    
+}
+.newEntryFormContainer .title {
+    text-align: center;
+    background-color: #3d4868;
+    color: white;
+    padding: 10px 0 10px;
+    margin-bottom: 20px;
+}
+.sequenceContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.sequenceContainer .sequence{
+    border: 1px solid #3d4868;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sequenceContainer .sequenceUserName {
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.newEntryForm {
+    margin-top: 40px;
+}
+
+.newEntryFormContainer .newEntryForm select {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 2px solid #0abbfa;
+    background-color: white;
+}
+.newEntryFormContainer .newEntryForm select:focus {
+    border: 2px solid #026081;
+    outline: none;
+}
+.newEntryFormContainer input {
+    width: 100%;
+    padding: 5px 10px 5px;
+    margin: 10px 0 10px;
+    border: 2px solid #0abbfa; 
+}
+.newEntryFormContainer input:focus {
+    border: 2px solid #026081;
+    outline: none;
+}
+.newEntryQuantityValueContainer {
+    position: relative;
+}
+.newEntryFormContainer .newEntryQuantityValueContainer input {
+    width: 35%;
+    display: block;
+}
+.newEntryQuantityValueContainer .newEntryTotal {
+    position: absolute;
+    width: 60%;
+    padding: 15px;
+    border: 2px solid #3d4868;
+    border-radius: 10px;
+    color: #0abbfa;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -5px;
+    right: 0px;
+}
+.newEntryForm .newEntryBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: white;
+    border: 2px solid #0abbfa;
+    border-radius: 5px;
+}
+.newEntryForm .newEntryBtn:hover {
+    background-color: #0abbfa;
+    border: 2px solid #0abbfa;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.blackBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}

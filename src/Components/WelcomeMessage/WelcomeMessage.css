@@ -1,0 +1,29 @@
+.welcomeMessage {
+    width:  90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+    padding: 20px 0 20px;
+}
+
+.welcomeMessage .introMessage {
+    margin: 10px 20px 10px;
+    text-align: justify;
+}
+.introMessage p {
+    margin: 10px 0 10px;
+    /* font-size: 1.1rem; */
+}
+.introMessage span{
+    color: #0abbfa;
+}
+.introMessage .balanceValue {
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 1px solid  #026081;
+    border-radius: 10px;
+}

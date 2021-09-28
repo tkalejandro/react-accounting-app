@@ -1,0 +1,26 @@
+.welcomeLinksMenu {
+    width:  100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    /* border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace; */
+    padding: 20px 0 20px;
+}
+
+.welcomeLinksMenu a {
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 5px;
+    text-align: center;
+}
+.welcomeLinksMenu .checkLog {
+    background-color: #026081;
+    color: white;
+}
+.welcomeLinksMenu .checkMenu {
+    border: 1px solid #026081;
+}
