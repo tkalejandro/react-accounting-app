@@ -49,7 +49,7 @@ const DataSingleItem = (props) => {
     return (
         <section className="dataSingleItemContainer">
             <h1>Item description</h1>
-            <table className="table">
+            {/* <table className="table">
                 <caption>Sequence {data.id}</caption>
                 <thead>
                     <tr className="rowHidden">
@@ -83,7 +83,7 @@ const DataSingleItem = (props) => {
                         <td>{printCorrectTotal()} €</td>
                     </tr>
                 </tbody>
-            </table>
+            </table> */}
             <div className="functionsContainer">
                 {printFunctions()}
             </div>
