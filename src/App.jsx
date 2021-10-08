@@ -15,6 +15,8 @@ import UserBalance from "./Views/UserBalance";
 import UserExpenses from "./Views/UserExpenses";
 import UserIncomes from "./Views/UserIncomes";
 import UserBalanceSingleView from "./Views/userBalanceSingleView";
+import TableController from "./Components/TableController/TableController";
+import exampleData2 from "./Assets/exampleData2";
 
 // export const StateContext = createContext()
 
@@ -33,7 +35,7 @@ const initialState = {
     currentTable: 0,
     //Example!
     //[[{}], [{}]]
-    accountabilityLog: [exampleData],
+    accountabilityLog: [exampleData, exampleData2],
     //newEntryFormat
     newEntry: {
         //We setup the first item which is alway 0. Making easier to setup the next id with length.
@@ -45,6 +47,10 @@ const initialState = {
         value: "",
         incomes: "",
         expenses: ""
+    },
+    newTable: {
+        title: "",
+        balance: ""
     },
 
     //Booleans
@@ -70,6 +76,10 @@ const reducer = (state, action) => {
                 accountabilityLog: [
                     [
                         {
+                            //This will be only in index 0, because you need to initiate the balance to create a new table.
+                            //New data wont have "table: main ".
+                            tableTitle: "main",
+                            //************ */
                             id: 0,
                             type: "initial",
                             category: "balance",
@@ -98,7 +108,7 @@ const reducer = (state, action) => {
             console.log("newLog", newLog)
             newLog[state.currentTable].pop()
             alert("Item deleted")
-            return {...state, accountabilityLog: newLog}
+            return { ...state, accountabilityLog: newLog }
         case "updateAccountabilityLog":
             //This is the [[{}],[{}],[{}]]
             //This way we clone the array
@@ -110,16 +120,16 @@ const reducer = (state, action) => {
 
             //Now Lets assign the total value to INCOME or EXPENSE checking the type
             switch (newEntryObject.type) {
-                case "income": 
+                case "income":
                     newEntryObject.incomes = newEntryObject.quantity * newEntryObject.value
                     break
                 case "expense":
                     newEntryObject.expenses = newEntryObject.quantity * newEntryObject.value
                     break
                 default:
-                    break  
+                    break
             }
-            
+
 
             //Now lets join the new object to their respective table using Push()
             //mainTable[0].....secondTable[1]
@@ -142,6 +152,42 @@ const reducer = (state, action) => {
             return { ...state, currentStatus: "Expense Added   (づ｡◕‿‿◕｡)づ" }
         case "statusExpenseAdded":
             return { ...state, currentStatus: "Income Balance Added   (づ｡◕‿‿◕｡)づ" }
+        case "tableForward":
+            return { ...state, currentTable: state.currentTable + 1 }
+        case "tableBackward":
+            return { ...state, currentTable: state.currentTable - 1 }
+        case "newTableTitle":
+            return { ...state, newTable: { ...state.newTable, title: action.payLoad } }
+        case "newTableBalance":
+            return { ...state, newTable: { ...state.newTable, balance: action.payLoad } }
+        case "addNewTable":
+            //Lets clone the tables in accountability log
+            let cloneTables = [...state.accountabilityLog]
+            //This should be always an array with objects [{...}]
+            let newTable = [{
+                tableTitle: state.newTable.title,
+                id: 0,
+                type: "initial",
+                category: "balance",
+                description: "",
+                quantity: "1",
+                value: state.newTable.balance,
+                expenses: "",
+                incomes: state.newTable.balance,
+            }]
+
+            //Now lets add this newTable to the tables.
+            cloneTables.push(newTable)
+            //Now lets return the new version of tables and reset the table form.
+            return {
+                ...state,
+                
+                accountabilityLog: cloneTables,
+                newTable: {
+                    title: "",
+                    balance: ""
+                }
+            }
         default:
             break
     }
@@ -175,24 +221,42 @@ const App = () => {
             case "newEntryValue":
                 dispatch({ type: "addNewEntryValue", payLoad: event.target.value })
                 break
+            case "newTableTitle":
+                dispatch({ type: "newTableTitle", payLoad: event.target.value })
+                break
+            case "newTableBalance":
+                dispatch({ type: "newTableBalance", payLoad: event.target.value })
+                break
             default:
                 break
         }
 
     }
-    const editItem = () => dispatch({type: "editItem"})
+    const editItem = () => dispatch({ type: "editItem" })
     const deleteLastEntry = () => dispatch({ type: "deleteLastEntry" })
     const updateAccountabilityLog = () => dispatch({ type: "updateAccountabilityLog" })
     const updateStatusInitialBalance = () => dispatch({ type: "statusInitialBalance" })
     const updateStatusIncome = () => dispatch({ type: "statusIncomeAdded" })
     const updateStatusExpense = () => dispatch({ type: "statusExpenseAdded" })
+    const tableForward = () => dispatch({ type: "tableForward" })
+    const tableBackward = () => dispatch({ type: "tableBackward" })
+    const addNewTable = () => dispatch({ type: "addNewTable" })
+
     console.log("initialState:", state)
     return (
 
         <Router>
             <Header />
             <main className="welcomeAppCssLogic">
+
                 <ScrollToTop />
+                <TableController
+                    state={state}
+                    tableBackward={tableBackward}
+                    tableForward={tableForward}
+                    updateState={updateState}
+                    addNewTable={addNewTable}
+                />
                 <Switch>
                     <Route path="/" exact component={MyFinances} />
                     <Route
@@ -213,7 +277,9 @@ const App = () => {
                         path="/home"
                         exact
                         render={() => {
-                            return <UserHomePage state={state} />
+                            return <UserHomePage
+                                state={state}
+                            />
                         }} />
                     <Route
                         path="/home/balance"
@@ -273,7 +339,7 @@ const App = () => {
             </main>
             <Footer />
         </Router>
-        
+
     )
 }
 

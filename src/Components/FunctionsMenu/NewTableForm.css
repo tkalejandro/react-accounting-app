@@ -1,0 +1,52 @@
+.newTableFormContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.newTableFormContainer .close {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    z-index: 2;
+    font-size: 3.5rem;
+}
+.close svg {
+    background-color: #3d4868;
+    color: white;
+    border-radius: 50%;
+   
+}
+
+.newTableFormContainer .newTableForm {
+    width: 300px;
+    
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #0abbfa, -2px -2px 5px #0abbfa;
+    padding: 20px 20px 20px;
+}
+.newTableForm .title {
+    text-align: center;
+    background-color: #3d4868;
+    color: white;
+    padding: 10px 0 10px;
+    margin-bottom: 20px;
+}
+
+.newTableForm input {
+    width: 100%;
+    padding: 5px 10px 5px;
+    margin: 10px 0 10px;
+    border: 2px solid #0abbfa; 
+}
+.newTableForm button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px;
+}

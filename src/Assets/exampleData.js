@@ -1,5 +1,5 @@
 let exampleData = [
-    { id: 0, type: "initial", category: "balance", description: "", quantity: "1", value: "385.50", expenses: "", incomes: "385.50" },
+    { tableTitle: "main", id: 0, type: "initial", category: "balance", description: "", quantity: "1", value: "385.50", expenses: "", incomes: "385.50" },
     { id: 1, type: "expense", category: "restaurant", description: "I ate 5 burguers", quantity: "5", value: "25", expenses: "125", incomes: "" },
     { id: 2, type: "expense", category: "restaurant", description: "I ate 5 burguers", quantity: "5", value: "25", expenses: "125", incomes: "" },
     { id: 3, type: "income", category: "freelance", description: "JS Lessons", quantity: "4", value: "50", expenses: "", incomes: "200" },

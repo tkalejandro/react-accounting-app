@@ -1,0 +1,72 @@
+.tableControllerContainer {
+    /* position: relative; */
+    width:  90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+    padding: 20px 0 20px;
+}
+
+.tableControllerContainer .userFullName {
+    color: #026081;
+}
+
+.tableControllerContainer .currentTableContainer {
+    position: relative;
+    width: 80%;
+    text-align: center;
+    margin: 10px 0 0;
+    
+}
+.currentTableContainer .tableTitle {
+    color: #6f768e
+}
+.currentTableContainer .arrows-left {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 0;
+    left: 0;
+    
+}
+.currentTableContainer .arrows-right {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 0;
+    right: 0;
+    
+}
+
+.arrowOff {
+    color: #8ee4f4;
+    pointer-events: none;
+}
+.arrowOn {
+    color: #6f768e;
+    cursor: pointer;
+    
+}
+
+
+.tableControllerContainer .newTableContainer {
+    width: 30px;
+    height: 30px;
+    
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3d4868;
+    cursor: pointer;
+}
+.tableControllerContainer .newTableContainer:hover {
+    color: #0abbfa;
+}
+.newTableContainer .plus{
+    margin-right: 3px;
+    
+    font-weight: 700;
+}
