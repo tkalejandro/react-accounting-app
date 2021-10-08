@@ -181,7 +181,7 @@ const reducer = (state, action) => {
             //Now lets return the new version of tables and reset the table form.
             return {
                 ...state,
-                
+
                 accountabilityLog: cloneTables,
                 newTable: {
                     title: "",
@@ -250,13 +250,7 @@ const App = () => {
             <main className="welcomeAppCssLogic">
 
                 <ScrollToTop />
-                <TableController
-                    state={state}
-                    tableBackward={tableBackward}
-                    tableForward={tableForward}
-                    updateState={updateState}
-                    addNewTable={addNewTable}
-                />
+
                 <Switch>
                     <Route path="/" exact component={MyFinances} />
                     <Route
@@ -277,9 +271,19 @@ const App = () => {
                         path="/home"
                         exact
                         render={() => {
-                            return <UserHomePage
-                                state={state}
-                            />
+                            return (
+                                <>
+                                    <TableController
+                                        state={state}
+                                        tableBackward={tableBackward}
+                                        tableForward={tableForward}
+                                        updateState={updateState}
+                                        addNewTable={addNewTable}
+                                    />
+                                    <UserHomePage
+                                        state={state}
+                                    />
+                                </>)
                         }} />
                     <Route
                         path="/home/balance"
