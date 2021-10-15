@@ -1,0 +1,50 @@
+.yourAccountContainer {
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    flex-direction: column;
+}
+.yourAccountContainer li {
+    list-style-type: none;
+}
+
+.sectionTableBlock{
+    width: 70vw;
+    text-align: center;
+    
+}
+.tableBlocksContainer {
+    
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-evenly;
+    
+    flex-wrap: wrap;
+}
+.tableBlock {
+    position: relative;
+    margin: 5px;
+    
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+    border-radius: 5px;
+}
+.deleteTableBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #6f768e;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #bbbace, -1px -1px 5px #bbbace;
+}

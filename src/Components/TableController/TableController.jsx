@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./TableController.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight, faTable } from "@fortawesome/free-solid-svg-icons";
 import NewTableForm from "../FunctionsMenu/NewTableForm";
 const TableController = (props) => {
-
+   
     const newTableFormRef = React.createRef()
 
     let data = props.state

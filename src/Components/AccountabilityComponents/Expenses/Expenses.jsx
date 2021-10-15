@@ -5,7 +5,7 @@ import TotalCalculation from "../Balance/TotalCalculation";
 
 const Expenses = (props) => {
     let data = props.state
-    console.log(data)
+   
     
     //Lets Filter to only see the Expenses!
     let onlyExpenses = data.accountabilityLog[data.currentTable].filter(element => element.type === "expense")

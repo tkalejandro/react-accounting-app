@@ -1,4 +1,4 @@
-import React, { useReducer, createContext } from "react";
+import React, { useReducer, createContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css"
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
@@ -61,6 +61,10 @@ const initialState = {
 }
 const reducer = (state, action) => {
     switch (action.type) {
+        case "increaseInteraction":
+            console.log("im working")
+            let newValue = state.interactionCounter + 1
+            return {...state, interactionCounter: newValue}
         case "updateName":
             return { ...state, userInitialInfo: { ...state.userInitialInfo, name: action.payLoad } }
         case "updateLastName":
@@ -193,6 +197,8 @@ const reducer = (state, action) => {
     }
 }
 const App = () => {
+
+   
     const [state, dispatch] = useReducer(reducer, initialState)
     const updateState = (event) => {
         switch (event.target.name) {
@@ -232,17 +238,24 @@ const App = () => {
         }
 
     }
-    const editItem = () => dispatch({ type: "editItem" })
+    //const editItem = () => dispatch({ type: "editItem" })
     const deleteLastEntry = () => dispatch({ type: "deleteLastEntry" })
     const updateAccountabilityLog = () => dispatch({ type: "updateAccountabilityLog" })
     const updateStatusInitialBalance = () => dispatch({ type: "statusInitialBalance" })
-    const updateStatusIncome = () => dispatch({ type: "statusIncomeAdded" })
-    const updateStatusExpense = () => dispatch({ type: "statusExpenseAdded" })
+    //const updateStatusIncome = () => dispatch({ type: "statusIncomeAdded" })
+    //const updateStatusExpense = () => dispatch({ type: "statusExpenseAdded" })
     const tableForward = () => dispatch({ type: "tableForward" })
     const tableBackward = () => dispatch({ type: "tableBackward" })
     const addNewTable = () => dispatch({ type: "addNewTable" })
+    //const increaseInteraction = () => dispatch({type: "increaseInteraction"})
 
     console.log("initialState:", state)
+    //console.log("Interaction Counter", state.interactionCounter)
+    
+    
+    
+    
+    
     return (
 
         <Router>
@@ -252,6 +265,7 @@ const App = () => {
                 <ScrollToTop />
 
                 <Switch>
+                
                     <Route path="/" exact component={MyFinances} />
                     <Route
                         path="/welcome"
@@ -279,9 +293,11 @@ const App = () => {
                                         tableForward={tableForward}
                                         updateState={updateState}
                                         addNewTable={addNewTable}
+                                        //increaseInteraction={increaseInteraction}
                                     />
                                     <UserHomePage
                                         state={state}
+                                        //increaseInteraction={increaseInteraction}
                                     />
                                 </>)
                         }} />
@@ -336,7 +352,15 @@ const App = () => {
                                 updateState={updateState}
                             />
                         }} />
-                    <Route path="/account" exact component={Account} />
+                    <Route 
+                    path="/account" 
+                    exact
+                    render={() => {
+                        return <Account
+                        state={state}
+                         />
+                    }} 
+                    />
                     <Route path="/faqs" exact component={FAQs} />
 
                 </Switch>

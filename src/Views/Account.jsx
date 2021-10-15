@@ -1,10 +1,13 @@
 import React from "react"
+import YourAccount from "../Components/YourAccount/YourAccount"
 
-const Account = () => {
+const Account = (props) => {
+
+    
     return (
-        <section>
-            <h2>Im Account Page</h2>
-        </section>
+        <>
+        <YourAccount state={props.state} />
+        </>
     )
 }
 
