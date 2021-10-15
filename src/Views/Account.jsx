@@ -6,7 +6,10 @@ const Account = (props) => {
     
     return (
         <>
-        <YourAccount state={props.state} />
+        <YourAccount 
+        state={props.state}
+        deleteTable={props.deleteTable}
+         />
         </>
     )
 }

@@ -12,7 +12,7 @@ const YourAccountTables = (props) => {
             <div key={index} className="tableBlock">
                 <span>{table[0].tableTitle}</span>
                 {index !== 0
-                    ? <span className="deleteTableBtn"> X </span>
+                    ? <span id={index} className="deleteTableBtn" onClick={props.deleteTable}> X </span>
                     : <></>
                 }
             </div>

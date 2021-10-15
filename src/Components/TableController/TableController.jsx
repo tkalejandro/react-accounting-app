@@ -1,9 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useEffect , useContext} from "react";
 import "./TableController.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight, faTable } from "@fortawesome/free-solid-svg-icons";
 import NewTableForm from "../FunctionsMenu/NewTableForm";
+//import FinanceContext from "../../context/FinanceContext";
 const TableController = (props) => {
+   // const { state , tableBackward ,tableForward , updateState , addNewTable} = useContext(FinanceContext)
    
     const newTableFormRef = React.createRef()
 

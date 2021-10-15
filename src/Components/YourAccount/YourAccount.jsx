@@ -3,7 +3,7 @@ import "./YourAccount.css"
 import YourAccountTables from "./YourAccountTables";
 
 const YourAccount = (props) => {
-    
+
     let data = props.state
 
 
@@ -22,7 +22,10 @@ const YourAccount = (props) => {
             </section>
             <section className="sectionTableBlock">
                 <h2>Your tables</h2>
-                <YourAccountTables tables={data.accountabilityLog}/>
+                <YourAccountTables
+                    tables={data.accountabilityLog}
+                    deleteTable={props.deleteTable}
+                />
             </section>
         </section>
     )

@@ -17,6 +17,7 @@ import UserIncomes from "./Views/UserIncomes";
 import UserBalanceSingleView from "./Views/userBalanceSingleView";
 import TableController from "./Components/TableController/TableController";
 import exampleData2 from "./Assets/exampleData2";
+//import FinanceState from "./context/FinanceState";
 
 // export const StateContext = createContext()
 
@@ -35,7 +36,7 @@ const initialState = {
     currentTable: 0,
     //Example!
     //[[{}], [{}]]
-    accountabilityLog: [exampleData, exampleData2],
+    accountabilityLog: [exampleData, exampleData2, exampleData, exampleData2],
     //newEntryFormat
     newEntry: {
         //We setup the first item which is alway 0. Making easier to setup the next id with length.
@@ -64,7 +65,7 @@ const reducer = (state, action) => {
         case "increaseInteraction":
             console.log("im working")
             let newValue = state.interactionCounter + 1
-            return {...state, interactionCounter: newValue}
+            return { ...state, interactionCounter: newValue }
         case "updateName":
             return { ...state, userInitialInfo: { ...state.userInitialInfo, name: action.payLoad } }
         case "updateLastName":
@@ -192,13 +193,22 @@ const reducer = (state, action) => {
                     balance: ""
                 }
             }
+        case "deleteTable":
+            console.log("delete Table", action.payLoad)
+            let tablesBeforeDelete =  [...state.accountabilityLog]
+            console.log("before delete", tablesBeforeDelete)
+            //The Paylaod contains the index of the event "X" delete Btn. Now we will remove it from our array.
+            tablesBeforeDelete.splice(action.payLoad, 1)
+            let tablesAfterDelete = tablesBeforeDelete 
+            console.log("after delete", tablesBeforeDelete)
+            return {...state, accountabilityLog: tablesAfterDelete }
         default:
             break
     }
 }
 const App = () => {
 
-   
+
     const [state, dispatch] = useReducer(reducer, initialState)
     const updateState = (event) => {
         switch (event.target.name) {
@@ -247,16 +257,18 @@ const App = () => {
     const tableForward = () => dispatch({ type: "tableForward" })
     const tableBackward = () => dispatch({ type: "tableBackward" })
     const addNewTable = () => dispatch({ type: "addNewTable" })
+    const deleteTable = (event) => dispatch({type: "deleteTable", payLoad: event.target.id})
     //const increaseInteraction = () => dispatch({type: "increaseInteraction"})
 
     console.log("initialState:", state)
     //console.log("Interaction Counter", state.interactionCounter)
-    
-    
-    
-    
-    
+
+
+
+
+
     return (
+        //<FinanceState>
 
         <Router>
             <Header />
@@ -265,7 +277,7 @@ const App = () => {
                 <ScrollToTop />
 
                 <Switch>
-                
+
                     <Route path="/" exact component={MyFinances} />
                     <Route
                         path="/welcome"
@@ -293,11 +305,11 @@ const App = () => {
                                         tableForward={tableForward}
                                         updateState={updateState}
                                         addNewTable={addNewTable}
-                                        //increaseInteraction={increaseInteraction}
+                                    //increaseInteraction={increaseInteraction}
                                     />
                                     <UserHomePage
                                         state={state}
-                                        //increaseInteraction={increaseInteraction}
+                                    //increaseInteraction={increaseInteraction}
                                     />
                                 </>)
                         }} />
@@ -352,14 +364,15 @@ const App = () => {
                                 updateState={updateState}
                             />
                         }} />
-                    <Route 
-                    path="/account" 
-                    exact
-                    render={() => {
-                        return <Account
-                        state={state}
-                         />
-                    }} 
+                    <Route
+                        path="/account"
+                        exact
+                        render={() => {
+                            return <Account
+                                state={state}
+                                deleteTable={deleteTable}
+                            />
+                        }}
                     />
                     <Route path="/faqs" exact component={FAQs} />
 
@@ -367,6 +380,7 @@ const App = () => {
             </main>
             <Footer />
         </Router>
+        //</FinanceState>
 
     )
 }
