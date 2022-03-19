@@ -10,30 +10,30 @@ body {
     
 }
 /* MAKE THIS #root and comment the next one for keep building */
-#root {
+/* #root {
     display: grid;
     grid-template-areas: "Header"
                             "Main"
                             "Footer";
     grid-template-rows:  auto auto 100vh;
-}
-/* .rootWelcome {
+} */
+.rootWelcome {
     display: grid;
     grid-template-areas:    "Main"
                             "Main"
                             "Main";
     grid-template-rows:  auto auto 100vh;
     grid-template-columns: 100vw;
-} */
+}
 
 
 main {
     grid-area: Main;
-    /* height: 95vh; */
+    /* min-Height: 90vh; */
     /* min-height: 640px; */
     border-radius: 10px;
     background-color: #8ee4f4;
-    margin: 5%;
+    margin: 5vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

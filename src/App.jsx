@@ -36,7 +36,7 @@ const initialState = {
     currentTable: 0,
     //Example!
     //[[{}], [{}]]
-    accountabilityLog: [exampleData, exampleData2, exampleData, exampleData2],
+    accountabilityLog: [exampleData, exampleData2],
     //newEntryFormat
     newEntry: {
         //We setup the first item which is alway 0. Making easier to setup the next id with length.
@@ -71,7 +71,7 @@ const reducer = (state, action) => {
         case "updateLastName":
             return { ...state, userInitialInfo: { ...state.userInitialInfo, lastName: action.payLoad } }
         case "updateInitialBalance":
-            return { ...state, userInitialInfo: { ...state.userInitialInfo, balance: action.payLoad } }
+            return { ...state,userInitialInfo: { ...state.userInitialInfo, balance: action.payLoad } }
         case "statusInitialBalance":
             return {
                 ...state,
@@ -265,13 +265,13 @@ const App = () => {
 
 
 
-
+    console.log("Initial", initialState.initialBalanceConfigured)
 
     return (
         //<FinanceState>
 
         <Router>
-            <Header />
+           <Header />
             <main className="welcomeAppCssLogic">
 
                 <ScrollToTop />
@@ -380,7 +380,7 @@ const App = () => {
             </main>
             <Footer />
         </Router>
-        //</FinanceState>
+        // </FinanceState>
 
     )
 }
